@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Checking extends BankAccount
 	{
-	private double checkingAmount = 0;
+	private double checkingAmount;
 
 		
 		
