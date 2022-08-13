@@ -4,9 +4,9 @@ public class Investment extends BankAccount {
 	
 	private double investmentAmount = 0;
 
-	Investment(String Name, String id) {
-		super(Name, id);
-		customerName = Name;
+	Investment(String name, String id) {
+		super(name, id);
+		customerName = name;
 		customerId = id;
 		
 	}
