@@ -5,19 +5,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="357.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="357.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BankAccountController">
    <children>
       <HBox prefHeight="50.0" prefWidth="100.0">
          <children>
             <Label text="Customer's Name:" />
-            <TextField />
+            <TextField fx:id="nameOfCustomer" />
          </children>
       </HBox>
       <HBox prefHeight="50.0" prefWidth="100.0">
          <children>
             <Label text="Account number" />
-            <TextField />
+            <TextField fx:id="accountNumber" />
          </children></HBox>
-      <Button mnemonicParsing="false" text="Compute" />
+      <Button mnemonicParsing="false" onAction="#computeResult" text="Compute" />
    </children>
 </VBox>
