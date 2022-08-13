@@ -8,7 +8,7 @@ abstract public class BankAccount {
 	
 	BankAccount(String name, String id)
 	 {
-		 customerName = name;
+		 customerName = name; 
 		 customerId = id;
 	 }
 	
