@@ -16,10 +16,13 @@ import javafx.stage.Stage;
 
 public class BankAccountController {
 	
-	//double checkingAmountLoaded = 0;
 	double moneyToCompute[] = {0,0,0};  // have to
 	//put it back to zero after entering the values
-	int choiceEntered=0;
+	int choiceEntered=0; // stores the choice entered by the choice box.
+	// choice one is deposit, and choice 2 is withdraw
+	String nameEntered = ""; //will store the name entered by the user
+	String accountEntered = ""; // will store the account number 
+	//entered by the user as a string
 
 	Stage applicationStage;
 	 @FXML
@@ -33,57 +36,43 @@ public class BankAccountController {
     private TextField accountNumber;
     
     @FXML
+ // entering the name and the id of the customer
+	//System.out.println("Just trying ");
     void computeResult(ActionEvent event) {
 
-    	//System.out.println("Just trying ");
-    	String nameEntered = nameOfCustomer.getText();
-    	String accountEntered = accountNumber.getText();
-    	//System.out.println(nameEntered );
-    	//System.out.println(accountEntered);
+    	nameEntered = nameOfCustomer.getText();
+    	accountEntered = accountNumber.getText();
     	choiceEntered = choiceBoxDepositWithdraw.getValue();
     	
-    	
+    	// trying to save it in the class
     	Checking customerIn = new Checking(nameEntered, accountEntered);
-    	
-    	System.out.println("This is the customer's name: " +customerIn.customerName );
-    	System.out.println("This is the customer's id: "+ customerIn.customerId );
-    	System.out.println("This is the customer's choice value: "+ choiceEntered);
-
-
-
+    
     }
+    
+
+    // this function stores the money entered by the user in a array of double
+    	//which is declared globally and goes back to the main scene
+    //it works, u can system.out to test
     
     void loadtheAmountEntered(Scene mainScene, ArrayList<TextField> checkingTextfield)
     {
-    	
     	for(int i = 0; i <3; i ++)
     	{
     		moneyToCompute[i] = Double.parseDouble(checkingTextfield.get(i).getText());
 
-    		//checkingTextfield.get(i).getText();
     	}
-    		
-    	//checkingAmountLoaded = Double.parseDouble(checkingTextfield.getText());
-    	
-    	//System.out.println("This is the customer's amount entered for the checking account "+ checkingAmountLoaded);
-
-    	for(int i = 0; i <3; i ++)
-    	{
-        	System.out.println("This is the customer's amount entered for the checking account "+ moneyToCompute[i]);
-
-    	}
-    	//System.out.println("This is the customer's amount entered for the checking account "+ moneyToCompute[i]);
-
     	applicationStage.setScene(mainScene);
-    	
     }
 
+    
+    
     @FXML
+    
+    // this function created the user interface for changing the scene
     void getTheAmountEntered (ActionEvent AmountEnteredEvent) 
     {
     	String[] output = {"cheking", "saving","investment"};
     	Scene mainScene = applicationStage.getScene();
-    	//System.out.println("The button was pressed");
     	int threeValuesToEnter = 3;
     	VBox allRows = new VBox();
     	ArrayList<TextField> moneyTextFields = new ArrayList<TextField>();
