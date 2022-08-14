@@ -23,7 +23,8 @@ public class BankAccountController {
 	String nameEntered = ""; //will store the name entered by the user
 	String accountEntered = ""; // will store the account number 
 	//entered by the user as a string
-
+	String[] output = {"cheking", "saving","investment"};
+	//to output in the label when changing the scene
 	Stage applicationStage;
 	 @FXML
 	 
@@ -45,13 +46,24 @@ public class BankAccountController {
     	choiceEntered = choiceBoxDepositWithdraw.getValue();
     	
     	// trying to save it in the class
-    	Checking customerIn = new Checking(nameEntered, accountEntered);
+    	Checking customerInChecking = new Checking(nameEntered, accountEntered);
+    	Savings customerInSaving = new Savings(nameEntered, accountEntered);
+    	Investment customerInInvestment = new Investment(nameEntered, accountEntered);
     	// if the choice entered is 1 we need to deposit the money
     	
     	if (choiceEntered == 1)
     	{
-    		customerIn.deposit(moneyToCompute[0]);
+    		customerInChecking.deposit(moneyToCompute[0]);
+    		customerInChecking.setCheckingAmount();
+    		customerInSaving.deposit(moneyToCompute[1]);
+    		customerInSaving.setSavings();
+    		customerInInvestment.deposit(moneyToCompute[2]);
+    		customerInInvestment.setInvestment();
     	}
+    	
+    	System.out.println(customerInChecking.getCheckingAmount());
+    	System.out.println(customerInSaving.getSaving());
+    	System.out.println(customerInInvestment.getInvestment());
     
     }
     
@@ -77,7 +89,7 @@ public class BankAccountController {
     // this function created the user interface for changing the scene
     void getTheAmountEntered (ActionEvent AmountEnteredEvent) 
     {
-    	String[] output = {"cheking", "saving","investment"};
+    	
     	Scene mainScene = applicationStage.getScene();
     	int threeValuesToEnter = 3;
     	VBox allRows = new VBox();
