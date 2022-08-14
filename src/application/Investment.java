@@ -21,20 +21,18 @@ public class Investment extends BankAccount {
 	}
 
 	@Override
-	public void deposit(int amount) {
+	public void deposit(double amount) {
 		if (amount != 0)
 		{
 			balance = balance + amount;
-			previousTransaction = amount;
 		}
 	}
 
 	@Override
-	public void withdraw(int amount) {
+	public void withdraw(double amount) {
 		if (amount != 0)
 		{
 			balance = balance - amount;
-			previousTransaction = -amount;
 		}
 		
 	}
