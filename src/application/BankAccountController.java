@@ -46,6 +46,12 @@ public class BankAccountController {
     	
     	// trying to save it in the class
     	Checking customerIn = new Checking(nameEntered, accountEntered);
+    	// if the choice entered is 1 we need to deposit the money
+    	
+    	if (choiceEntered == 1)
+    	{
+    		customerIn.deposit(moneyToCompute[0]);
+    	}
     
     }
     
