@@ -1,3 +1,31 @@
+/******
+ * 
+ * This Project works fine so far.
+ * It asks the user to input the name and the id
+ * the user needs to select a choice which is depositing of 
+ * withdrawing the money from the customers' account
+ * 
+ * ATTENTION: ONLY THE DEPOSIT WORKS
+ *				THE WITHDRAWING  METHOD IN THE CONTROLLER DOES NOT WORK
+ *				THE ONE IN THE CLASS WOORKS PROPERLY BECAUSE I HAVE TESTED THE CLASS 
+ *				SEPARATLY
+ *ASSUMPTION: THE WITHDRAW IN THE CONTROLER IS PROBABLY NOT WORKING BECAUSE 
+ *				OUNCE WE HIT THE COMPUTE BUTTON IN THE USER INTERFACE THE 
+ *				PROGRAM REFRESHES WHICH MAKES THE BALANCE BACK TO ZERO
+ *
+ *TO ADD TO THE PROGRAM :
+ *			-Validating the user input
+ *			-A Tranfer fund method which transfers the money between the accounts
+ *			-display the accounts balances ounce the customer is done depositing
+ *			withdrawing and transfering.
+ *			Basically, once the customer exits the process
+ *
+ *NOTE: AREEB, PLEASE DOUBLE CHECK ENHERITANCE TO SEE IF IT IS DONE RIGHT
+ *
+ *
+ *NEEEEEEEEEEXXXXXT SSSSSTEEEEEEEPPP: PLEASE DO THE WITHDRAW METHOD FIRST
+ * ****/
+
 package application;
 
 import java.util.ArrayList;
@@ -36,9 +64,47 @@ public class BankAccountController {
     @FXML
     private TextField accountNumber;
     
+   
+    void withdrawing(BankAccount customer)
+    {
+    	if(customer.checkingAccount.getCheckingAmount() <moneyToCompute[0] )
+		{
+	    	System.out.println("the amount entered is higher then the balance in the checking account" + 
+		customer.checkingAccount.getCheckingAmount());
+		}
+		else
+		{
+    		customer.checkingAccount.withdraw(moneyToCompute[0]);
+		}
+		
+		
+		if(customer.savingsAccount.getSaving() <moneyToCompute[1] )
+		{
+	    	System.out.println("the amount entered is higher then the balance in the Savings account" + 
+		customer.checkingAccount.getCheckingAmount());
+
+		}
+		else
+		{
+			customer.savingsAccount.withdraw(moneyToCompute[1]);
+		}
+		
+		
+		if(customer.InvestAccount.getInvestment() <moneyToCompute[2] )
+		{
+	    	System.out.println("the amount entered is higher then the balance in the Invesment account" + 
+	    			customer.InvestAccount.getInvestment());
+
+		}
+		else
+		{
+			customer.savingsAccount.withdraw(moneyToCompute[0]);
+		}
+    }
     @FXML
- // entering the name and the id of the customer
-	//System.out.println("Just trying ");
+    // entering the name and the id of the customer
+   	//System.out.println("Just trying ");
+       
     void computeResult(ActionEvent event) {
 
     	nameEntered = nameOfCustomer.getText();
@@ -46,24 +112,29 @@ public class BankAccountController {
     	choiceEntered = choiceBoxDepositWithdraw.getValue();
     	
     	// trying to save it in the class
-    	Checking customerInChecking = new Checking(nameEntered, accountEntered);
-    	Savings customerInSaving = new Savings(nameEntered, accountEntered);
-    	Investment customerInInvestment = new Investment(nameEntered, accountEntered);
+    	BankAccount customer = new BankAccount(nameEntered, accountEntered);
+    	customer.savingsAccount = new Savings(nameEntered, accountEntered);
+    	customer.checkingAccount= new Checking(nameEntered, accountEntered);
+    	customer.InvestAccount= new Investment(nameEntered, accountEntered);
+    	
     	// if the choice entered is 1 we need to deposit the money
     	
     	if (choiceEntered == 1)
     	{
-    		//customerInChecking.deposit(moneyToCompute[0]);
-    		//customerInChecking.setCheckingAmount();
-    		//customerInSaving.deposit(moneyToCompute[1]);
-    		//customerInSaving.setSavings();
-    		//customerInInvestment.deposit(moneyToCompute[2]);
-    		//customerInInvestment.setInvestment();
+    		customer.checkingAccount.deposit(moneyToCompute[0]);
+    		customer.checkingAccount.setCheckingAmount();
+    		customer.savingsAccount.deposit(moneyToCompute[1]);
+    		customer.savingsAccount.setSavings();
+    		customer.InvestAccount.deposit(moneyToCompute[2]);
+    		customer.InvestAccount.setInvestment();
     	}
-    	
-    	System.out.println(customerInChecking.getCheckingAmount());
-    	System.out.println(customerInSaving.getSaving());
-    	System.out.println(customerInInvestment.getInvestment());
+    	else
+    	{
+    		withdrawing( customer);
+    	}
+    	System.out.println("CHECKING AMOUNT ENTERED:  "+customer.checkingAccount.getCheckingAmount());
+    	System.out.println("SAVING AMOUNT ENTERED:  "+customer.savingsAccount.getSaving());
+    	System.out.println("INVESTMENT AMOUNT ENTERED:  "+customer.InvestAccount.getInvestment());
     
     }
     

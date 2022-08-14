@@ -1,9 +1,9 @@
 package application;
  public class BankAccount {
 	double balance;
-	Investment InvestAccount = new Investment("","");
-	Savings savingsAccount = new Savings("","");
-	Checking checkingAccount = new Checking("","");
+	Investment InvestAccount;
+	Savings savingsAccount;
+	Checking checkingAccount;
 	public static String customerName;
 	public static String customerId;
 	
