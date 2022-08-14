@@ -4,8 +4,8 @@ public class Savings extends BankAccount{
 
 	Savings(String Name, String id) {
 		super(Name, id);
-		customerName = Name;
-		customerId = id;
+	//	customerName = Name;
+		//customerId = id;
 	}
 
 	private double savingsAmount = balance;

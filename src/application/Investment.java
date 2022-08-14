@@ -6,8 +6,8 @@ public class Investment extends BankAccount {
 
 	Investment(String name, String id) {
 		super(name, id);
-		customerName = name;
-		customerId = id;
+	//	customerName = name;
+		//customerId = id;
 		
 	}
 	

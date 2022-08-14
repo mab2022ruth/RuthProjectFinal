@@ -16,8 +16,8 @@ public class Checking extends BankAccount
 		
 		Checking(String Name, String id) {
 		super(Name, id);
-		customerName = Name;
-		customerId = id;
+		//customerName = Name;
+		//customerId = id;
 		
 	}
 		
