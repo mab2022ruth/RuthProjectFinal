@@ -32,6 +32,8 @@
             		</FXCollections>
             </items>
             </ChoiceBox>
+            <Button mnemonicParsing="false" onAction="#getTheAmountEntered" text="get the money" />
+            
          </children>
       </HBox>
       <Button mnemonicParsing="false" onAction="#computeResult" text="Compute" />

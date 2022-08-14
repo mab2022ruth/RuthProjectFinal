@@ -16,6 +16,8 @@ public class Main extends Application {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			VBox root = loader.load(new FileInputStream("src/application/BankAccountView.fxml"));
+			BankAccountController controller = (BankAccountController)loader.getController();
+			controller.applicationStage = primaryStage;
 			Scene scene = new Scene(root,400,400);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Ruth' mab Bank Account Application");
