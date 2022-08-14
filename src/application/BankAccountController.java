@@ -53,12 +53,12 @@ public class BankAccountController {
     	
     	if (choiceEntered == 1)
     	{
-    		customerInChecking.deposit(moneyToCompute[0]);
-    		customerInChecking.setCheckingAmount();
-    		customerInSaving.deposit(moneyToCompute[1]);
-    		customerInSaving.setSavings();
-    		customerInInvestment.deposit(moneyToCompute[2]);
-    		customerInInvestment.setInvestment();
+    		//customerInChecking.deposit(moneyToCompute[0]);
+    		//customerInChecking.setCheckingAmount();
+    		//customerInSaving.deposit(moneyToCompute[1]);
+    		//customerInSaving.setSavings();
+    		//customerInInvestment.deposit(moneyToCompute[2]);
+    		//customerInInvestment.setInvestment();
     	}
     	
     	System.out.println(customerInChecking.getCheckingAmount());

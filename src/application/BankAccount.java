@@ -1,6 +1,9 @@
 package application;
-abstract public class BankAccount {
+ public class BankAccount {
 	double balance;
+	Investment InvestAccount = new Investment("","");
+	Savings savingsAccount = new Savings("","");
+	Checking checkingAccount = new Checking("","");
 	public static String customerName;
 	public static String customerId;
 	
@@ -10,10 +13,10 @@ abstract public class BankAccount {
 		 customerId = id;
 	 }
 	
-	public abstract void deposit(double amount);
+	//public abstract void deposit(double amount);
 	
 	
-	public abstract void withdraw(double amount);
+	//public abstract void withdraw(double amount);
 	
 	
 	

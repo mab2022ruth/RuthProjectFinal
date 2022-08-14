@@ -27,14 +27,14 @@ public class Savings extends BankAccount{
 	{
 		return savingsAmount;
 	}
-	@Override
+
 	public void deposit(double amount) {
 		if (amount != 0)
 		{
 			balance = balance + amount;
 		}
 	}
-	@Override
+	
 	public void withdraw(double amount) {
 		if (amount != 0)
 		{

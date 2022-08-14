@@ -20,7 +20,7 @@ public class Investment extends BankAccount {
 		return investmentAmount;
 	}
 
-	@Override
+
 	public void deposit(double amount) {
 		if (amount != 0)
 		{
@@ -28,7 +28,7 @@ public class Investment extends BankAccount {
 		}
 	}
 
-	@Override
+
 	public void withdraw(double amount) {
 		if (amount != 0)
 		{
