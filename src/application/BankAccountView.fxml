@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.collections.FXCollections?>
 
 <VBox prefHeight="357.0" prefWidth="481.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BankAccountController">
    <children>
@@ -18,6 +20,20 @@
             <Label text="Account number" />
             <TextField fx:id="accountNumber" />
          </children></HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="Deposit/withdraw" />
+            <ChoiceBox fx:id="choiceBoxDepositWithdraw" prefWidth="150.0">
+            <items>
+            <FXCollections fx:factory="observableArrayList">
+            			<Integer fx:value="1" />
+            			<Integer fx:value="2" />
+ 
+            		</FXCollections>
+            </items>
+            </ChoiceBox>
+         </children>
+      </HBox>
       <Button mnemonicParsing="false" onAction="#computeResult" text="Compute" />
    </children>
 </VBox>
